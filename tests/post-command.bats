@@ -5,7 +5,7 @@ load '/usr/local/lib/bats/load.bash'
 # Uncomment the following line to debug stub failures
 export BUILDKITE_AGENT_STUB_DEBUG=/dev/tty
 
-@test "Creates an annotation with the file count" {
+@test "Creates an annotation of mispelled words" {
   export BUILDKITE_PLUGIN_SPELL_CHECKER_PATTERN="*.bats"
 
   stub buildkite-agent 'annotate "Found 1 files matching *.bats" : echo Annotation created'
