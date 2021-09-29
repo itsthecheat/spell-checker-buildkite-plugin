@@ -10,7 +10,7 @@ Add the following to your `pipeline.yml`:
 steps:
   - command: ls
     plugins:
-      - itsthecheat/spell-checker#v1.0.0:
+      - itsthecheat/spell-checker:
           pattern: '*.md'
 ```
 

@@ -4,10 +4,12 @@ set -euo pipefail
 
 PATTERN="$BUILDKITE_PLUGIN_SPELL_CHECKER_PATTERN"
 
-echo "--- :1234: Counting the number of files"
+echo "Checking the spelling..."
 
-COUNT=$(find . -name "$PATTERN" | wc -l)
+# COUNT=$(find . -name "$PATTERN" | wc -l)
+WORDS=$(docker run --rm -ti -v $(pwd):/workdir tmaier/markdown-spellcheck:latest "$PATTERN"
+)
 
-echo "Found ${COUNT} files matching ${PATTERN}"
+echo "Found ${WORDS} in files matching ${PATTERN}"
 
-buildkite-agent annotate "Found ${COUNT} files matching ${PATTERN}"
+buildkite-agent annotate "Found ${WORDS} in files matching ${PATTERN}"
