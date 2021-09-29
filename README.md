@@ -2,7 +2,7 @@
 
 Check spelling in specified file.
 
-## Example
+## Exampla
 
 Add the following to your `pipeline.yml`:
 
