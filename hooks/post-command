@@ -6,7 +6,7 @@ PATTERN="$BUILDKITE_PLUGIN_SPELL_CHECKER_PATTERN"
 
 echo "Checking the spelling..."
 
-WORDS=$(docker run --rm $(pwd):/workdir tmaier/hunspell "$PATTERN")
+WORDS=$(docker run --rm -ti -v $(pwd):/workdir tmaier/markdown-spellcheck:latest "$PATTERN")
 
 echo "Found ${WORDS} in files matching ${PATTERN}"
 
